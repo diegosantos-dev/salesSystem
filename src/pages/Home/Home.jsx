@@ -2,7 +2,7 @@ import React from 'react';
 import GridLayout from 'components/Templates/GridLayout';
 import Image from 'components/Atoms/Image';
 import { CardDashbordNumber, CardText } from 'components/Organisms/Card';
-import { TitlePage } from 'components/Atoms/Title';
+import Title from 'components/Atoms/Title';
 
 import QRCodeLinkedin from 'static/images/qrCodeLinkedin.png';
 import QRCodeGithub from 'static/images/qrCodeGithub.png';
@@ -13,9 +13,9 @@ import { ContainerCardDashboard } from './style';
 const Home = () => {
   return (
     <GridLayout>
-      <TitlePage>
+      <Title>
         <strong>Bem-vindo,</strong> Diego
-      </TitlePage>
+      </Title>
       <ContainerCardDashboard>
         <CardDashbordNumber title="Clientes" />
         <CardDashbordNumber title="Produtos" />

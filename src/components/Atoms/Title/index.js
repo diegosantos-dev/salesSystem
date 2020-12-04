@@ -1,3 +1,3 @@
-import { TitlePage } from './Title';
+import Title from './Title';
 
-export { TitlePage };
+export default Title;

@@ -1,7 +1,9 @@
-import React from 'React';
+import React from 'react';
 
 import { WelcomeUser } from './style';
 
-export const TitlePage = ({ children }) => {
+const Title = ({ children }) => {
   return <WelcomeUser>{children}</WelcomeUser>;
 };
+
+export default Title;
