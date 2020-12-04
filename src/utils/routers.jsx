@@ -4,7 +4,7 @@ import { Route, Switch, Redirect } from 'react-router';
 import { ConnectedRouter } from 'connected-react-router';
 import { createBrowserHistory } from 'history';
 import { isAuthenticated } from './isAuthenticated';
-import Login from 'pages/Login';
+import Home from 'pages/Home';
 import urls from 'static/urls';
 
 export const history = createBrowserHistory();
@@ -27,7 +27,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route exact path={urls.ROUTES.LOGIN} component={Login} />
+      <Route exact path={urls.ROUTES.LOGIN} component={Home} />
       {/* <PrivateRoute exact path={urls.ROUTES.LoggedUser} component={User} /> */}
     </Switch>
   </ConnectedRouter>

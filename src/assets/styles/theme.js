@@ -1,15 +1,16 @@
 export default {
   color: {
-    colorPrimary: "#501f99",
-    colorSecondary: "#b3247c"
+    colorPrimary: '#1A1A1A',
+    colorSecondary: '#F25AC9',
+    colorTertiary: '#A55FEB',
+    colorQuaternary: '#FFF',
+    colorQuinary: '#373d49',
   },
-  size: {
-    mobileS: "320px",
-    mobileM: "375px",
-    mobileL: "425px",
-    tablet: "768px",
-    laptop: "1024px",
-    laptopL: "1440px",
-    desktop: "2560px"
-  }
+  fontSize: {
+    primary: '32px',
+    secondary: '28px',
+    tertiary: '24px',
+    quaternary: '20px',
+    quinary: '16px',
+  },
 };
