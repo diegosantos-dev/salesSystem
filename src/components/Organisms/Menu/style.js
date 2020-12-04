@@ -18,7 +18,6 @@ export const MenuItems = styled.ul`
   width: 100%;
   li {
     margin-bottom: ${scale.ms9};
-    font-size: ${theme.fontSize.quaternary};
     background: ${theme.color.colorQuinary};
     border-radius: 8px;
     padding: ${scale.ms4};
@@ -33,5 +32,3 @@ export const MenuItems = styled.ul`
     }
   }
 `;
-
-export const ItemsMenu = styled.li``;

@@ -7,9 +7,10 @@ const Menu = () => {
     <Container>
       <Logo />
       <MenuItems>
-        <ItemsMenu>Realizar Pedidos </ItemsMenu>
-        <ItemsMenu>Produtos</ItemsMenu>
-        <ItemsMenu>Clientes</ItemsMenu>
+        <li>Dashboards</li>
+        <li>Clientes</li>
+        <li>Realizar Pedidos </li>
+        <li>Produtos</li>
       </MenuItems>
     </Container>
   );
