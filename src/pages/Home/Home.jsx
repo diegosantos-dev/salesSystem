@@ -1,25 +1,35 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import GridLayout from 'components/Templates/GridLayout';
 import Image from 'components/Atoms/Image';
-import { CardDashbordNumber, CardText } from 'components/Organisms/Card';
 import Title from 'components/Atoms/Title';
+import { CardDashbordNumber, CardText } from 'components/Organisms/Card';
+import { Creators as ProductsActions } from 'store/ducks/products';
+import { Creators as ClientsActions } from 'store/ducks/clients';
+import { useDispatch, useSelector } from 'react-redux';
 
 import QRCodeLinkedin from 'static/images/qrCodeLinkedin.png';
 import QRCodeGithub from 'static/images/qrCodeGithub.png';
 import QRCodeDonate from 'static/images/qrCodeDonate.jpeg';
 
-import { ContainerCardDashboard } from './style';
+import { ContainerCardDashboard, ContainerCardDashboardOld } from './style';
 
 const Home = () => {
+  const dipatch = useDispatch();
+  const { products } = useSelector((state) => state.products);
+  const { clients } = useSelector((state) => state.clients);
+
+  useEffect(() => {
+    dipatch(ClientsActions.getClients());
+    dipatch(ProductsActions.getProducts());
+  }, []);
   return (
     <GridLayout>
       <Title>
         <strong>Bem-vindo,</strong> Diego
       </Title>
       <ContainerCardDashboard>
-        <CardDashbordNumber title="Clientes" />
-        <CardDashbordNumber title="Produtos" />
-        <CardDashbordNumber title="Pedidos" />
+        <CardDashbordNumber title="Clientes" amount={clients.length} />
+        <CardDashbordNumber title="Produtos" amount={products.length} />
       </ContainerCardDashboard>
       <CardText marginTop={28}>
         <p>Projeto feito com ReactJS e Java.</p>
@@ -28,7 +38,7 @@ const Home = () => {
           abaixo para me achar.
         </p>
       </CardText>
-      <ContainerCardDashboard marginTop={28}>
+      <ContainerCardDashboardOld marginTop={28}>
         <CardText center>
           <Image urlImage={QRCodeLinkedin} w="150" h="150" />
         </CardText>
@@ -37,9 +47,11 @@ const Home = () => {
         </CardText>
         <CardText center>
           <Image urlImage={QRCodeDonate} w="150" h="150" />
-          <p>Donete por Pix 😍🚀</p>
+          <p>
+            Donete por Pix <span>😍🚀</span>
+          </p>
         </CardText>
-      </ContainerCardDashboard>
+      </ContainerCardDashboardOld>
     </GridLayout>
   );
 };

@@ -1,23 +1,35 @@
 import axios from 'axios';
-import * as urlsApi from 'static/endpoints';
+import urls from 'static/urls';
+import { basePath } from 'static/endpoints';
+import { history } from 'utils/routers';
+
 const API = axios.create({
-  baseURL: urlsApi.basePath,
+  baseURL: basePath,
   headers: {
     'Content-Type': 'application/json',
-    Authorization: `basic ${localStorage.getItem('Authorization')}`,
   },
 });
-API.interceptors.response.use(
-  function (response) {
-    return response;
+
+API.interceptors.request.use(
+  (config) => {
+    return config;
   },
-  function (error) {
-    if (401 === error.response.status) {
-      localStorage.removeItem('token');
-      localStorage.removeItem('id');
-    } else {
-      return Promise.reject(error);
+  (error) => Promise.reject(error)
+);
+
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const responseStatus = error.response.status;
+    if (responseStatus === 401) {
+      localStorage.clear();
+      history.push(urls.ROUTES.HOME);
     }
+    if (responseStatus === 500) {
+      alert('Erro: 500 - Erro desconhecido!');
+    }
+    throw error;
   }
 );
+
 export default API;

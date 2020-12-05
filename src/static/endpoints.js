@@ -1,9 +1,9 @@
-const base = "https://esp-backend.ioasys.com.br";
+const base = 'http://localhost:8080';
 
-const service = "api";
-const version = "v1";
+const service = 'api';
 
-export const basePath = `${base}/${service}/${version}/`;
+export const basePath = `${base}/${service}`;
 
-export const AUTH_USER = "/auth/signin";
-export const GET_AUTH_PAINTER = `/auth`;
+export const PRODUCTS = `${basePath}/produtos`;
+export const CLIENTS = '/clientes';
+export const ORDER = '/pedidos';

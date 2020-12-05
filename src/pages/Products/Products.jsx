@@ -5,36 +5,36 @@ import urls from 'static/urls';
 import { Link } from 'react-router-dom';
 import { CardText } from 'components/Organisms/Card';
 
-import { Creators as ClientsActions } from 'store/ducks/clients';
+import { Creators as ProductsActions } from 'store/ducks/products';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { ContainerCardDashboard } from './style';
 
 const Products = () => {
   const dipatch = useDispatch();
-  const { clients } = useSelector((state) => state.clients);
+  const { products } = useSelector((state) => state.products);
 
   useEffect(() => {
-    dipatch(ClientsActions.getClients());
+    dipatch(ProductsActions.getProducts());
   }, []);
 
   return (
     <GridLayout>
-      <Title>Clientes</Title>
-      <Link to={urls.ROUTES.ADD_CLIENTS}>Adicionar Clientes</Link>
+      <Title>Produtos</Title>
+      <Link to={urls.ROUTES.ADD_PRODUCT}>Adicionar Produto</Link>
       <ContainerCardDashboard>
         <CardText title="Products">
           <ul>
             <div>
               <div>Nome:</div>
-              <div>CPF:</div>
+              <div>Preço:</div>
             </div>
-            {clients.map((client) => {
-              const { nome, cpf } = client;
+            {products.map((product) => {
+              const { descricao, preco } = product;
               return (
                 <li>
-                  <div>{nome}</div>
-                  <div>{cpf}</div>
+                  <div>{descricao}</div>
+                  <div>{`R$ ${preco}`}</div>
                 </li>
               );
             })}

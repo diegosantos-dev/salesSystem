@@ -1,3 +1,3 @@
-import { CardList, CardDashbordNumber, CardText } from './Card';
+import { CardDashbordNumber, CardText } from './Card';
 
-export { CardList, CardDashbordNumber, CardText };
+export { CardDashbordNumber, CardText };

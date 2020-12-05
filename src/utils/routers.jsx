@@ -6,6 +6,10 @@ import { createBrowserHistory } from 'history';
 import { isAuthenticated } from './isAuthenticated';
 import Home from 'pages/Home';
 import Clients from 'pages/Clients';
+import AddClients from 'pages/AddClients';
+import Products from 'pages/Products';
+import AddProducts from 'pages/AddProducts';
+import PlaceOrder from 'pages/PlaceOrder';
 import urls from 'static/urls';
 
 export const history = createBrowserHistory();
@@ -28,8 +32,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
 const Routes = () => (
   <ConnectedRouter history={history}>
     <Switch>
-      <Route exact path={urls.ROUTES.LOGIN} component={Home} />
-      <Route exact path={urls.ROUTES.LOGIN} component={Clients} />
+      <Route exact path={urls.ROUTES.HOME} component={Home} />
+      <Route exact path={urls.ROUTES.CLIENTS} component={Clients} />
+      <Route exact path={urls.ROUTES.ADD_CLIENTS} component={AddClients} />
+      <Route exact path={urls.ROUTES.PLACE_ORDER} component={PlaceOrder} />
+      <Route exact path={urls.ROUTES.PRODUCTS} component={Products} />
+      <Route exact path={urls.ROUTES.ADD_PRODUCT} component={AddProducts} />
 
       {/* <PrivateRoute exact path={urls.ROUTES.LoggedUser} component={User} /> */}
     </Switch>

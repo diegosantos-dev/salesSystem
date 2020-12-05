@@ -14,10 +14,36 @@ export const Container = styled.div`
   }
   ul {
     list-style: none;
+    div:nth-child(1) {
+      display: flex;
+      div {
+        margin-bottom: ${scale.ms3};
+        font-size: ${theme.fontSize.tertiary};
+        font-family: 'PoppinsBlack', sans-serif;
+      }
+      div:nth-child(2) {
+        display: flex;
+        place-content: flex-end;
+        width: 100%;
+      }
+    }
+    li:nth-child(2) {
+      border-top: 1px solid ${theme.color.colorPrimary};
+    }
+
     li {
       padding-bottom: ${scale.ms6};
       padding-top: ${scale.ms6};
       border-bottom: 1px solid ${theme.color.colorPrimary};
+      display: flex;
+      div:nth-child(1) {
+        width: 70%;
+      }
+      div:nth-child(2) {
+        display: flex;
+        place-content: flex-end;
+        width: 100%;
+      }
     }
   }
 `;

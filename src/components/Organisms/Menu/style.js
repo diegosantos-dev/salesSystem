@@ -16,19 +16,33 @@ export const Container = styled.div`
 export const MenuItems = styled.ul`
   list-style: none;
   width: 100%;
-  li {
-    margin-bottom: ${scale.ms9};
-    background: ${theme.color.colorQuinary};
-    border-radius: 8px;
-    padding: ${scale.ms4};
-    animation: 0.3s ease-in;
-    :hover {
-      background: linear-gradient(
-        40deg,
-        ${theme.color.colorSecondary} 1%,
-        ${theme.color.colorQuinary} 40%
-      );
-      cursor: pointer;
-    }
+  a {
+    width: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+`;
+
+export const Li = styled.li`
+  margin-bottom: ${scale.ms9};
+  background: ${theme.color.colorQuinary};
+  border-radius: 8px;
+  padding: ${scale.ms4};
+  animation: 0.3s ease-in;
+  ${({ actived }) =>
+    actived
+      ? `background: linear-gradient(
+      40deg,
+      ${theme.color.colorSecondary} 1%,
+      ${theme.color.colorQuinary} 40%
+    );`
+      : ''}
+  :hover {
+    background: linear-gradient(
+      40deg,
+      ${theme.color.colorSecondary} 1%,
+      ${theme.color.colorQuinary} 40%
+    );
+    cursor: pointer;
   }
 `;

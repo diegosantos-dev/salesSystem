@@ -1,10 +1,12 @@
 const urls = {
   ROUTES: {
-    LOGIN: `/`
+    HOME: `/`,
+    CLIENTS: `/clients`,
+    ADD_CLIENTS: `/add-clients`,
+    PLACE_ORDER: `/place-order`,
+    PRODUCTS: `/products`,
+    ADD_PRODUCT: `/add-products`,
   },
-  LINKS: {
-    LOGIN: `/`
-  }
 };
 
 export default urls;
