@@ -26,5 +26,5 @@ Seles System
 2. Run `npm start` and access `http://localhost:3000`.<br />
  
 
-- Note: It is in this scenario to run the backend project first locally.
-https://github.com/diegosantos-dev/salesSystemBackJava/tree/main
+- Note: <b>It is in this scenario to run the backend project first locally.</b>
+https://github.com/diegosantos-dev/salesSystemBackJava
