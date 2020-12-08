@@ -3,10 +3,7 @@ Seles System
 </h1>
 
 <p align="center">Seles System Simple application.</p>
-
-<p align="center">Click <a href="https://help.hotmart.com/">here</a> to live app-production.</p> 
-  
-
+ 
 <hr>
 
 ## Participants
@@ -28,3 +25,6 @@ Seles System
 1. Run `npm install`.<br />
 2. Run `npm start` and access `http://localhost:3000`.<br />
  
+
+- Note: It is in this scenario to run the backend project first locally.
+https://github.com/diegosantos-dev/salesSystemBackJava/tree/main
