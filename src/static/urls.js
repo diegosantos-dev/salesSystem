@@ -6,6 +6,7 @@ const urls = {
     PLACE_ORDER: `/place-order`,
     PRODUCTS: `/products`,
     ADD_PRODUCT: `/add-products`,
+    CONSULT_ORDER: `/consult-order`,
   },
 };
 

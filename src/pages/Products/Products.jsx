@@ -2,8 +2,8 @@ import React, { useEffect } from 'react';
 import GridLayout from 'components/Templates/GridLayout';
 import Title from 'components/Atoms/Title';
 import urls from 'static/urls';
-import { Link } from 'react-router-dom';
 import { CardText } from 'components/Organisms/Card';
+import LinkButton from 'components/Atoms/LinkButton';
 
 import { Creators as ProductsActions } from 'store/ducks/products';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +21,8 @@ const Products = () => {
   return (
     <GridLayout>
       <Title>Produtos</Title>
-      <Link to={urls.ROUTES.ADD_PRODUCT}>Adicionar Produto</Link>
+
+      <LinkButton router={urls.ROUTES.ADD_PRODUCT} text="Adicionar Produto" />
       <ContainerCardDashboard>
         <CardText title="Products">
           <ul>
@@ -30,10 +31,10 @@ const Products = () => {
               <div>Preço:</div>
             </div>
             {products.map((product) => {
-              const { descricao, preco } = product;
+              const { id, descricao, preco } = product;
               return (
                 <li>
-                  <div>{descricao}</div>
+                  <div>{`Cod.: ${id} - ${descricao}`}</div>
                   <div>{`R$ ${preco}`}</div>
                 </li>
               );

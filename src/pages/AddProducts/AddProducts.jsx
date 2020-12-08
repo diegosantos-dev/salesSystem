@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import GridLayout from 'components/Templates/GridLayout';
 import Title from 'components/Atoms/Title';
-import urls from 'static/urls';
-import { Link } from 'react-router-dom';
+import LinkButton from 'components/Atoms/LinkButton';
 import { CardText } from 'components/Organisms/Card';
+import Input from 'components/Atoms/Input';
 
 import { Creators as ProductsActions } from 'store/ducks/products';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ContainerCardDashboard } from './style';
+import { ContainerCardDashboard, ContainerButton } from './style';
 
 const AddProducts = () => {
   const [nameProduct, setNameProduct] = useState();
@@ -26,6 +26,12 @@ const AddProducts = () => {
     setProductsRegister(products.reverse().slice(0, 5));
   }, [isLoading]);
 
+  const AddProductsRegister = () => {
+    dipatch(ProductsActions.addProducts({ nameProduct, priceProduct }));
+    setNameProduct('');
+    setPriceProduct('');
+  };
+
   return (
     <GridLayout>
       <Title>Adicionar Produtos</Title>
@@ -38,7 +44,7 @@ const AddProducts = () => {
             </div>
             <li>
               <div>
-                <input
+                <Input
                   type="text"
                   name="name_product"
                   id="name_product"
@@ -47,7 +53,7 @@ const AddProducts = () => {
                 />
               </div>
               <div>
-                <input
+                <Input
                   type="number"
                   name="name_product"
                   id="name_product"
@@ -58,33 +64,36 @@ const AddProducts = () => {
             </li>
           </ul>
         </CardText>
-        <button
-          onClick={() => {
-            dipatch(ProductsActions.addProducts({ nameProduct, priceProduct }));
-            setNameProduct('');
-            setPriceProduct('');
-          }}
-        >
-          Adicionar
-        </button>
-        <Title>Últimos Produtos adicionados</Title>
-        <CardText title="Products">
-          <ul>
-            <div>
-              <div>Nome:</div>
-              <div>Preço:</div>
-            </div>
-            {productsRegister.map((product) => {
-              const { descricao, preco } = product;
-              return (
-                <li>
-                  <div>{descricao}</div>
-                  <div>{`R$ ${preco}`}</div>
-                </li>
-              );
-            })}
-          </ul>
-        </CardText>
+        {nameProduct && priceProduct && (
+          <ContainerButton>
+            <LinkButton
+              onClick={() => {
+                AddProductsRegister();
+              }}
+              text="Adicionar"
+            />
+          </ContainerButton>
+        )}
+        <div style={{ marginTop: '20px' }}>
+          <Title>Últimos Produtos adicionados</Title>
+          <CardText>
+            <ul>
+              <div>
+                <div>Nome:</div>
+                <div>Preço:</div>
+              </div>
+              {productsRegister.map((product) => {
+                const { descricao, preco } = product;
+                return (
+                  <li>
+                    <div>{descricao}</div>
+                    <div>{`R$ ${preco}`}</div>
+                  </li>
+                );
+              })}
+            </ul>
+          </CardText>
+        </div>
       </ContainerCardDashboard>
     </GridLayout>
   );

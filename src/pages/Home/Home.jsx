@@ -34,8 +34,9 @@ const Home = () => {
       <CardText marginTop={28}>
         <p>Projeto feito com ReactJS e Java.</p>
         <p>
-          Desenvolvedor: Diego Santos. Use a camera do seu celular nos QRCode
-          abaixo para me achar.
+          Use a camera do seu celular nos QRCode abaixo para me achar ou para
+          fazer uma doação (o valor será convertido para a mensalidade da
+          faculdade)
         </p>
       </CardText>
       <ContainerCardDashboardOld marginTop={28}>

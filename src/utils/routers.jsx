@@ -10,6 +10,8 @@ import AddClients from 'pages/AddClients';
 import Products from 'pages/Products';
 import AddProducts from 'pages/AddProducts';
 import PlaceOrder from 'pages/PlaceOrder';
+import ConsultPlaceOrder from 'pages/ConsultPlaceOrder';
+
 import urls from 'static/urls';
 
 export const history = createBrowserHistory();
@@ -38,6 +40,11 @@ const Routes = () => (
       <Route exact path={urls.ROUTES.PLACE_ORDER} component={PlaceOrder} />
       <Route exact path={urls.ROUTES.PRODUCTS} component={Products} />
       <Route exact path={urls.ROUTES.ADD_PRODUCT} component={AddProducts} />
+      <Route
+        exact
+        path={urls.ROUTES.CONSULT_ORDER}
+        component={ConsultPlaceOrder}
+      />
 
       {/* <PrivateRoute exact path={urls.ROUTES.LoggedUser} component={User} /> */}
     </Switch>

@@ -1,9 +1,11 @@
 import React, { useEffect } from 'react';
+import { cpf as CPFValidator } from 'cpf-cnpj-validator';
+
 import GridLayout from 'components/Templates/GridLayout';
 import Title from 'components/Atoms/Title';
 import urls from 'static/urls';
-import { Link } from 'react-router-dom';
 import { CardText } from 'components/Organisms/Card';
+import LinkButton from 'components/Atoms/LinkButton';
 
 import { Creators as ClientsActions } from 'store/ducks/clients';
 import { useDispatch, useSelector } from 'react-redux';
@@ -21,7 +23,7 @@ const Products = () => {
   return (
     <GridLayout>
       <Title>Clientes</Title>
-      <Link to={urls.ROUTES.ADD_CLIENTS}>Adicionar Clientes</Link>
+      <LinkButton router={urls.ROUTES.ADD_CLIENTS} text="Adicionar Clientes" />
       <ContainerCardDashboard>
         <CardText title="Products">
           <ul>
@@ -34,7 +36,7 @@ const Products = () => {
               return (
                 <li>
                   <div>{nome}</div>
-                  <div>{cpf}</div>
+                  <div>{CPFValidator.format(cpf)}</div>
                 </li>
               );
             })}
